@@ -1,0 +1,18 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.hero {
+	padding-block: 7.2rem;
+	@include pg-white-space(padding);
+
+    &__container{
+        margin-top: 12.8rem;
+        margin-inline: 16.8rem;
+
+        h1{
+            font-size: $fs-48;
+            font-weight: $fw-medium;
+            max-width: 36.3rem;
+        }
+    }
+}

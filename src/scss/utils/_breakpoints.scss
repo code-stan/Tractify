@@ -1,0 +1,11 @@
+$breakpoints: (
+    "phone": 550px,
+    "tablet": 800px,
+    "max-tablet": 1024px,
+    "desktop": 1920px,
+    "LGdesktop": 2280px
+) !default;
+
+@function breakpoint($name) {
+    @return map-get($breakpoints, $name);
+}

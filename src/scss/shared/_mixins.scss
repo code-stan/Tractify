@@ -1,0 +1,43 @@
+@use "../utils/breakpoints" as b;
+@use "../utils/variables" as v;
+
+@mixin media($range: min, $size) {
+	@if $range == min {
+		@media screen and (min-width: b.breakpoint($size)) {
+			@content;
+		}
+	}
+	@media screen and (max-width: b.breakpoint($size)) {
+		@content;
+	}
+}
+
+@mixin flex($align, $justify, $gap: 0rem, $fd: "row") {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+	gap: $gap;
+	flex-direction: $fd;
+}
+@mixin pg-white-space($spacer){
+	#{$spacer}-inline: v.$inline-pg-space;
+	
+	@include media(max, tablet){
+		#{$spacer}-inline: v.$inline-pg-space-sm;
+
+	}
+}
+@mixin toggeableHover{
+	transition: .2s ease-in-out;
+	&:hover {
+		opacity: 0.6;
+	}
+}
+//functions
+
+//shared placeholders
+%text-layout{
+	font-weight: v.$fw-bold;
+    line-height: 1.4;
+    text-transform: uppercase;
+}

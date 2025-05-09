@@ -1,0 +1,88 @@
+// Re-attachable globals
+// :root {
+
+// }
+
+$black: #000000;
+// COLOR PALETTE
+// light colors
+$white: #ffffff;
+$pale-white: #d9d9d9;
+$light-bluish-grey: #a3a8b8;
+//- Base
+
+// accent colors
+$dark: #070B0E;
+
+//FONT FAMILY
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("/fonts/cg-black.woff2") format("woff2");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("/fonts/cg-medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("/fonts/cg-bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Neue Montreal";
+	src: url("/fonts/nm-bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Clash Display";
+	src: url("/fonts/cd-var.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Inter";
+	src: url("/fonts/inter-var.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+// FONT SIZES
+$fs-48: 4.8rem;
+$fs-36: 3.6rem;
+$fs-32: 3.2rem;
+$fs-28: 2.8rem;
+$fs-24: 2.4rem;
+$fs-20: 2rem;
+$fs-18: 1.8rem;
+$fs-16: 1.6rem; //- Base
+$fs-14: 1.4rem;
+$fs-12: 1.2rem;
+$fs-10: 1rem;
+$fs-8: 0.8rem;
+
+// FONT WEIGHTS
+$fw-extra-bold: 800;
+$fw-bold: 700;
+$fw-semi-bold: 600;
+$fw-medium: 500;
+$fw-regular: 400;
+$fw-light: 300;
+
+//Z-INDEX
+$z-loader: 10000;
+$z-top-layer: 9999;
+
+$inline-pg-space: 10.2rem;
+$inline-pg-space-sm: 2rem;
