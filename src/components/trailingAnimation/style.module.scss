@@ -1,0 +1,91 @@
+@use "../../scss/utils/variables" as *;
+
+.section {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.star-line {
+	--i: #{var(--idx)};
+	width: 0.1rem;
+	height: 100vh;
+    background: linear-gradient(to bottom, $very-dark-grey 30%, $very-dark-grey-2);
+	top: 0;
+	left: calc((var(--idx) + 1) / 5 * 100%);
+	position: absolute;
+}
+
+.star {
+	--i: #{var(--idx)};
+	position: absolute;
+	width: 0.8rem;
+	height: 30rem; // controls trail length
+	background: linear-gradient(to bottom, $very-dark-grey-2 30%, transparent);
+	border-radius: 0.8rem;
+	opacity: 0;
+	left: calc((var(--idx) + 1) / 5 * 100%);
+	translate: -50%;
+
+	animation: shooting var(--duration) linear infinite;
+	animation-delay: var(--delay);
+}
+
+// directions: 0 and 2 go down, 1 and 3 go up
+@for $i from 0 through 3 {
+	.star-line:nth-child(#{$i + 1}) .star {
+		--idx: #{$i};
+		@if $i == 0 {
+			top: -10%;
+			--duration: 4s;
+			animation-name: shooting-down;
+		} @else if $i == 1 {
+			bottom: -10%;
+			--duration: 7s;
+			animation-name: shooting-up;
+		} @else if $i == 2 {
+			top: -10%;
+			--duration: 5s;
+			animation-name: shooting-down;
+		} @else if $i == 3 {
+			bottom: -10%;
+			--duration: 9s;
+			animation-name: shooting-up;
+		}
+	}
+}
+
+// falling down
+@keyframes shooting-down {
+	0% {
+		transform: translateY(-30rem) rotate(-180deg);
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(110vh) rotate(-180deg);
+		opacity: 0;
+	}
+}
+
+// rising up
+@keyframes shooting-up {
+	0% {
+		transform: translateY(30rem);
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-110vh);
+		opacity: 0;
+	}
+}

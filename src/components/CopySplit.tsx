@@ -108,9 +108,9 @@ const CopySplit = ({ children, animateOnScroll = true, delay = 0, preserveLayout
 		}
 
 		gsap.set(container, { opacity: 1 });
-		gsap.set(allLines, { y: "105%" });
+			gsap.set(allLines, { y: "115%", rotation: -5, skewX: 20, skewY: 3 });
 
-		const anim = { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out", delay };
+		const anim = { y: "0%", rotate: 0, duration: 1, skewX: 0, skewY: 0, stagger: 0.1, ease: "power2.out", delay };
 
 		if (animateOnScroll) {
 			gsap.to(allLines, {
