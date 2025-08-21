@@ -2,7 +2,7 @@
 
 html,
 body {
-	overflow-x: hidden;
+	// overflow-x: hidden;
 	margin-inline: auto;
 	scroll-behavior: auto !important;
 	overscroll-behavior-x: none;
@@ -46,6 +46,14 @@ body {
 	@media screen and (min-width: breakpoint("LGdesktop")) {
 		font-size: 62.5%;
 	}
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
 }
 [data-desktop] {
 	@include media("<phone") {
@@ -112,6 +120,6 @@ p {
 	will-change: transform;
 }
 
-button{
+button {
 	color: $black;
 }

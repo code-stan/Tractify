@@ -1,0 +1,94 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.how-it-works {
+	color: $white;
+	padding: 13.6rem 27.8rem 12rem 27.4rem;
+	position: relative;
+	z-index: 1;
+
+	.how-it-works__container {
+		max-width: 88.8rem;
+		@include flex(center, center, 3.2rem, column);
+	}
+	.col {
+		@include flex(center, center, 17.2rem);
+	}
+	.left {
+		flex: 1;
+		@include flex(center, center, 2.3rem, column);
+
+		h2 {
+			font-size: 12rem;
+			line-height: 0.6;
+			font-weight: $fw-medium;
+			margin: 0;
+		}
+
+		p {
+			font-size: 2.2rem;
+			line-height: 1;
+			margin-top: 0.5rem;
+		}
+	}
+
+	.right {
+		flex: 1;
+		width: 100%;
+		background-color: blue;
+
+		small {
+			display: block;
+			font-size: 1.4rem;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin-top: 2.4rem;
+			display: flex;
+
+			flex-direction: column;
+			gap: 2rem;
+
+			li {
+				display: flex;
+				align-items: start;
+				font-size: 3.2rem;
+				line-height: 1.1;
+
+				span {
+					display: inline-block;
+					margin-top: 1.5rem;
+					width: 3.1rem;
+					height: 0.2rem;
+					background-color: #fff;
+					margin-right: 1rem;
+				}
+			}
+		}
+
+		.description {
+			font-size: 1.4rem;
+			line-height: 1.5;
+			width: fit-content;
+		}
+
+		.button {
+			margin-top: 2.4rem;
+			background: transparent;
+			color: #fff;
+			border: 1px solid #fff;
+			padding: 0.75rem 1.5rem;
+			font-size: 1rem;
+			cursor: pointer;
+			border-radius: 999px;
+			transition: background 0.2s ease;
+
+			&:hover {
+				background: #fff;
+				color: #000;
+			}
+		}
+	}
+}
