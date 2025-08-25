@@ -1,0 +1,80 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.testimonials {
+	margin-top: 12rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-inline: 25.4rem;
+	background-image: url("public/testimonial-bg-1.png");
+	background-repeat: no-repeat;
+	// background-position: left -30%;
+
+	.heading-container {
+		max-width: 53.9rem;
+	}
+	h2 {
+		@extend %oval-heading;
+	}
+	h3 {
+		font-size: $fs-48;
+		line-height: 1.1;
+		font-weight: $fw-medium;
+		text-align: center;
+	}
+	.cards-container {
+		margin-top: 7.2rem;
+		position: relative;
+		@include flex(stretch, stretch, 4rem);
+		align-items: stretch;
+		// width: 100%;
+		// height: 100%;;
+	}
+	.card-container {
+		flex: 1;
+		border-radius: 1.6rem;
+		// @extend %floating-anim;
+		background-color: $charcoal-black;
+		// position: absolute;
+		// inset: 0;
+		min-height: 25rem;
+		padding: 1.6rem;
+		padding-bottom: 4rem;
+		background-image: url("./card-star-bg.svg");
+		background-repeat: no-repeat;
+		background-position: bottom;
+		background-size: 100% 3.2rem;
+	}
+	.header,
+	.author-container {
+		font-size: $fs-14;
+		font-weight: $fw-medium;
+		letter-spacing: -0.01em;
+	}
+	.header p {
+		color: rgba($color: #ffffff, $alpha: 0.8);
+		line-height: 1.15;
+		margin-top: 1.6rem;
+	}
+	.testimonial-card {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+	.author-container {
+		margin-top: auto;
+		h4 {
+			line-height: 1;
+		}
+		p {
+			font-style: italic;
+			color: rgba($color: #ffffff, $alpha: 0.4);
+		}
+	}
+	@for $i from 1 through 4 {
+		.card-container:nth-child(#{$i}) {
+			animation-delay: calc(0.2s * $i);
+		}
+	}
+}

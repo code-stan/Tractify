@@ -34,7 +34,7 @@ const CopySplit = ({ children, animateOnScroll = true, delay = 0, preserveLayout
 		splitInstances.current = [];
 		originalLayout.current = [];
 		ScrollTrigger.getAll()
-			.filter((st) => st.trigger === containerRef.current)
+			.filter((st) => st.trigger === containerRef.current && st.vars.id !== "hero-image-pin")
 			.forEach((st) => st.kill());
 		ScrollTrigger.refresh();
 	};
@@ -113,9 +113,6 @@ const CopySplit = ({ children, animateOnScroll = true, delay = 0, preserveLayout
 		const anim = { y: "0%", rotate: 0, duration: 1, skewX: 0, skewY: 0, stagger: 0.1, ease: "power2.out", delay };
 
 		if (animateOnScroll) {
-			gsap.to(allLines, {
-				...anim,
-			});
 			const tl = gsap.timeline({
 				scrollTrigger: { trigger: container, start: "top 90%", once: true },
 			});

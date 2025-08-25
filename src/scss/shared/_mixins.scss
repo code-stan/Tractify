@@ -19,16 +19,15 @@
 	gap: $gap;
 	flex-direction: $fd;
 }
-@mixin pg-white-space($spacer){
+@mixin pg-white-space($spacer) {
 	#{$spacer}-inline: v.$inline-pg-space;
-	
-	@include media(max, tablet){
-		#{$spacer}-inline: v.$inline-pg-space-sm;
 
+	@include media(max, tablet) {
+		#{$spacer}-inline: v.$inline-pg-space-sm;
 	}
 }
-@mixin toggeableHover{
-	transition: .2s ease-in-out;
+@mixin toggeableHover {
+	transition: 0.2s ease-in-out;
 	&:hover {
 		opacity: 0.6;
 	}
@@ -36,8 +35,47 @@
 //functions
 
 //shared placeholders
-%text-layout{
+%text-layout {
 	font-weight: v.$fw-bold;
-    line-height: 1.4;
-    text-transform: uppercase;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+%oval-heading {
+	font-size: v.$fs-14;
+	font-weight: v.$fw-medium;
+	text-transform: uppercase;
+	letter-spacing: 0.001em;
+	padding: 0.8rem 1.2rem;
+	border-radius: 2.4rem;
+	border: 0.15rem solid v.$yellow;
+	color: v.$yellow;
+	width: fit-content;
+	line-height: 0.8;
+}
+
+%rotate-anim {
+	animation: rotate 10s infinite linear forwards;
+
+	@keyframes rotate {
+		100% {
+			transform: rotateZ(1turn);
+		}
+	}
+}
+
+%floating-anim {
+	animation: floating 15s infinite ease-in-out;
+
+	@keyframes floating {
+		0% {
+			transform: translate(-50%, -50%);
+		}
+		50% {
+			transform: translate(-50%, -60%);
+		}
+		100% {
+			transform: translate(-50%, -50%);
+		}
+	}
 }

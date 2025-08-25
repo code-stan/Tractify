@@ -1,9 +1,14 @@
 import React from "react";
 import CopySplit from "../CopySplit";
 import { navLinksItems } from "./data";
+import useScrollDirection from "../../hooks/useScrollDirection";
+import useScrollPosition from "../../hooks/useScrollPosition";
 import styles from "./style.module.scss";
 
 const Nav = () => {
+	const scrollDirection = useScrollDirection();
+	const isScrolled = useScrollPosition(100);
+	
 	const navLinks = navLinksItems.map((item) => (
 		<React.Fragment key={item}>
 			<CopySplit delay={0.25}>
@@ -12,7 +17,7 @@ const Nav = () => {
 		</React.Fragment>
 	));
 	return (
-		<nav className={styles.nav}>
+		<nav className={`${styles.nav} ${scrollDirection === 'down' ? styles.nav__hidden : ''} ${isScrolled ? styles.nav__blurred : ''}`}>
 			<ul>
 				<CopySplit delay={0.25}>
 					<li className={styles.nav__logo}>Tractify</li>

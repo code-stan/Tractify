@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RefObject } from "react";
+import { type RefObject } from "react";
 import { BREAKPOINT } from "../utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);

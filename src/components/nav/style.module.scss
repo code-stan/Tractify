@@ -2,7 +2,15 @@
 @use "../../scss/shared/mixins" as *;
 
 .nav {
-	padding-top: 4rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-top: 7.2rem;
+	@include pg-white-space(padding);
+	z-index: 1000;
+	transform: translateY(0);
+	transition: 0.3s ease-in-out;
 
 	ul {
 		@include flex(center, space-between, 2rem);
@@ -28,11 +36,11 @@
 		button {
 			color: $white;
 		}
-		
+
 		button:last-child {
 			padding: 1.6rem 2rem;
 			@include flex(center, unset, 2.4rem);
-			border: .1rem solid $white;
+			border: 0.1rem solid $white;
 			border-radius: 8rem;
 			font-weight: $fw-semi-bold;
 		}
@@ -57,4 +65,14 @@
 			}
 		}
 	}
+}
+
+.nav__hidden {
+	transform: translateY(-100%);
+}
+
+.nav__blurred {
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.1);
 }

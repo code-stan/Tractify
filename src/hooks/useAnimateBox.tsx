@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RefObject } from "react";
+import { type RefObject } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 const useAnimateBox = (element: RefObject<HTMLDivElement>, parentContainer: RefObject<HTMLDivElement>) => {
