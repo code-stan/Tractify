@@ -1,0 +1,36 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.contact-section {
+	margin-top: 12rem;
+	margin-inline: 25.4rem;
+	background-color: #0e1215;
+	padding: 6.4rem 22.05rem 10.7rem;
+	background-image: url("public/long-horizontal-star.svg");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100% 16.9rem;
+	border-radius: 3.2rem;
+	@include flex(center, center, 4rem, column);
+	text-align: center;
+
+	h2 {
+		font-size: $fs-48;
+		font-weight: $fw-medium;
+	}
+	button {
+		background-color: rgba($yellow, 0.8);
+		padding: 1.6rem 2rem;
+		@include flex(center, space-between, 2.4rem);
+		border-radius: 8rem;
+		font-weight: $fw-semi-bold;
+		color: #070b0e;
+		font-size: $fs-14;
+		letter-spacing: 0.01em;
+        line-height: 1;
+
+        &:hover{
+            background-color: lighten(rgba($yellow, 0.8), 5%);
+        }
+	}
+}

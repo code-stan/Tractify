@@ -1,4 +1,5 @@
 import SmoothScroll from "./components/common/smoothScroll";
+import Contact from "./components/contact/Contact";
 import Hero from "./components/hero/Hero";
 import HowItWorks from "./components/how-it-works/HowItWorks";
 import MoreBenefits from "./components/more-benefits/MoreBenefits";
@@ -47,6 +48,7 @@ function App() {
 						<TalkToSales />
 						<TrustedBy />
 						<Testimonials />
+						<Contact/>
 						<Spacer />
 					</SmoothScroll>
 				</LenisProvider>

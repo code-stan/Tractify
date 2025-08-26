@@ -1,4 +1,4 @@
-// import { useGSAP } from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { Fragment, useRef } from "react";
 import TestimonialCard from "./TestimonialCard";
@@ -16,35 +16,31 @@ const Testimonials = () => {
 	const testimonialCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 	if (!containerRef || !testimonialCardsRef) return;
 
-	// useGSAP(
-	// 	() => {
-	// 		const cards = testimonialCardsRef.current;
-	// 		ScrollTrigger.create({
-	// 			trigger: containerRef.current,
-	// 			start: "top top",
-	// 			end: () => `+=${window.innerHeight * 2}`,
-	// 			pin: true,
-	// 			markers: true,
-	// 		});
-
-	// 		cards.forEach((card, index) => {
-	// 			gsap.to(card, {
-	// 				left: `${positions[index]}%`,
-	// 				rotation: `${rotations[index]}`,
-	// 				ease: "none",
-	// 				scrollTrigger: {
-	// 					trigger: containerRef.current,
-	// 					start: "top top",
-	// 					end: () => `+=${window.innerHeight}`,
-	// 					scrub: 1,
-	// 					id: `card-${index}`,
-	// 				},
-	// 			});
-	// 		});
-	// 	},
-	// 	{ scope: containerRef }
-	// );
-
+	useGSAP(() => {
+		const tl = gsap.timeline({ defaults: { ease: "elastic.inOut(1, 0.7)", duration: 2.5 }, paused: true});
+		tl.to(".cards-container", {
+			x: 0,
+			y: 0,
+			opacity: 1
+		}).to(
+			".card-container",
+			{
+				opacity: 1,
+				x: 0,
+				y: 0,
+				rotation: 0,
+				stagger: {amount: .25},
+			},
+			"<"
+		);
+		ScrollTrigger.create({
+			trigger: ".testimonials",
+			start: "top 100%",
+			onEnter() {
+				tl.play();
+			},
+		});
+	}, [containerRef]);
 	return (
 		<section className="testimonials" ref={containerRef}>
 			<div className="title-container">
