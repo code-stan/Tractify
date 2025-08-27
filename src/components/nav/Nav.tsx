@@ -8,7 +8,7 @@ import styles from "./style.module.scss";
 const Nav = () => {
 	const scrollDirection = useScrollDirection();
 	const isScrolled = useScrollPosition(100);
-	
+
 	const navLinks = navLinksItems.map((item) => (
 		<React.Fragment key={item}>
 			<CopySplit delay={0.25}>
@@ -17,7 +17,7 @@ const Nav = () => {
 		</React.Fragment>
 	));
 	return (
-		<nav className={`${styles.nav} ${scrollDirection === 'down' ? styles.nav__hidden : ''} ${isScrolled ? styles.nav__blurred : ''}`}>
+		<nav className={`${styles.nav} ${scrollDirection === "down" ? styles.nav__hidden : ""} ${isScrolled ? styles.nav__blurred : ""}`}>
 			<ul>
 				<CopySplit delay={0.25}>
 					<li className={styles.nav__logo}>Tractify</li>
@@ -28,9 +28,14 @@ const Nav = () => {
 					<CopySplit delay={0.25}>
 						<li className={styles.nav__buttons}>
 							<button>Login</button>
-							<button>Get started <img src="/right-arr.svg" alt=""/></button>
+							<button>
+								Get started <img src="/right-arr.svg" alt="" />
+							</button>
 						</li>
 					</CopySplit>
+				</div>
+				<div className={styles["mobile-menu"]}>
+					Menu <img src="/plus.svg" alt="" width={14} height={14} />
 				</div>
 			</ul>
 		</nav>

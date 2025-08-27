@@ -7,6 +7,14 @@ const useScrollDirection = () => {
 	useEffect(() => {
 		const updateScrollDirection = () => {
 			const scrollY = window.scrollY;
+			
+			// Always show nav when at the top of the page
+			if (scrollY === 0) {
+				setScrollDirection("up");
+				setLastScrollY(0);
+				return;
+			}
+			
 			const direction = scrollY > lastScrollY ? "down" : "up";
 
 			if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {

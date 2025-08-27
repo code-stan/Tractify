@@ -45,6 +45,23 @@
 			font-weight: $fw-semi-bold;
 		}
 	}
+	.mobile-menu {
+		display: none;
+	}
+
+	@include media(max, tablet) {
+		.nav__items {
+			display: none;
+		}
+		.mobile-menu {
+			padding: 1.3rem 2rem;
+			display: block;
+			font-size: $fs-14;
+			@include flex(center, center, 0.8rem);
+			border-radius: 8rem;
+			border: 0.1rem solid $white;
+		}
+	}
 }
 
 @include media(max, tablet) {

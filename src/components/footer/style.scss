@@ -1,0 +1,29 @@
+@use "../../scss/utils/variables" as *;
+@use "../../scss/shared/mixins" as *;
+
+.footer {
+	max-width: 71.2rem;
+	margin: 8rem auto;
+	@include flex(start, space-between, 8rem);
+
+	.col {
+		line-height: 0.8;
+		letter-spacing: -0.01em;
+		font-size: $fs-14;
+
+		h2 {
+			color: #a3a8b8;
+			text-transform: uppercase;
+		}
+	}
+	.footer-list {
+		margin-top: 3.6rem;
+		display: flex;
+		gap: 3.2rem;
+		flex-direction: column;
+
+		li {
+			color: #d9d9d9;
+		}
+	}
+}

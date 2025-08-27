@@ -4,6 +4,7 @@ import "./style.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopySplit from "../CopySplit";
+import { BREAKPOINT } from "../../utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,16 +16,19 @@ const RightArr = () => (
 
 const HowItWorks = () => {
 	useGSAP(() => {
-		ScrollTrigger.create({
-			trigger: ".how-it-works",
-			start: "top 0%",
-			end: "+=150%",
-			pin: true,
-			pinSpacing: true,
-			scrub: true,
-			onLeave: () => {
-				gsap.set(".how-it-works", { zIndex: "1" });
-			},
+		const mm = gsap.matchMedia();
+		mm.add(`min-width: ${BREAKPOINT}`, () => {
+			ScrollTrigger.create({
+				trigger: ".how-it-works",
+				start: "top 0%",
+				end: "+=150%",
+				pin: true,
+				pinSpacing: true,
+				scrub: true,
+				onLeave: () => {
+					gsap.set(".how-it-works", { zIndex: "1" });
+				},
+			});
 		});
 	});
 	return (

@@ -7,9 +7,12 @@
 	align-items: center;
 	flex-direction: column;
 	padding-inline: 25.4rem;
-	background-image: url("public/testimonial-bg-1.png");
+	background-image:url("public/testimonial-gradient-bg.svg");
+	background-position: cover;
 	background-repeat: no-repeat;
 	// background-position: left -30%;
+	background-position: right top;
+	background-size: cover;
 
 	.heading-container {
 		max-width: 53.9rem;

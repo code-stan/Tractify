@@ -4,39 +4,31 @@ import Nav from "../nav/Nav";
 import "./style.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BREAKPOINT } from "../../utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerEffect({
-	name: "heroImageAnimation",
-	effect: (targets: HTMLElement, config: Record<string, string>) => {
-		return gsap.to(targets, {
-			y: 0,
-			rotateX: 0,
-			scale: 1,
-			duration: config.duration || 1.5,
-			ease: "power2.out",
-		});
-	},
-});
 const Hero = () => {
 	useGSAP(() => {
-		const animation = gsap.to(".hero-image img", {
-			yPercent: -75,
-			rotateX: 0,
-			scale: 1,
-			duration: 1.5,
-			ease: "power1.out",
-			filter: "blur(0px) brightness(1)",
-		});
-		ScrollTrigger.create({
-			trigger: ".hero-image__container",
-			start: "top 30%",
-			end: "+=150%",
-			animation,
-			pin: true,
-			pinSpacing: false,
-			scrub: true,
-			id: "hero-image-pin",
+		const mm = gsap.matchMedia();
+		mm.add(`min-width: ${BREAKPOINT}`, () => {
+			const animation = gsap.to(".hero-image img", {
+				yPercent: -75,
+				rotateX: 0,
+				scale: 1,
+				duration: 1.5,
+				ease: "power1.out",
+				filter: "blur(0px) brightness(1)",
+			});
+			ScrollTrigger.create({
+				trigger: ".hero-image__container",
+				start: "top 30%",
+				end: "+=150%",
+				animation,
+				pin: true,
+				pinSpacing: false,
+				scrub: true,
+				id: "hero-image-pin",
+			});
 		});
 	});
 	return (
