@@ -51,13 +51,16 @@ const HowItWorks = () => {
 						<small>Lawyers lose 40% of their time</small>
 						<ul>
 							<li>
-								<span></span>Manually tracking billable hours
+								<div></div>
+								<span>Manually tracking billable hours</span>
 							</li>
 							<li>
-								<span></span>Drafting and organizing legal documents
+								<div></div>
+								<span>Drafting and organizing legal documents</span>
 							</li>
 							<li>
-								<span></span>Managing endless emails & client intake
+								<div></div>
+								<span>Managing endless emails & client intake</span>
 							</li>
 						</ul>
 					</div>

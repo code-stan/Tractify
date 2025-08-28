@@ -9,6 +9,7 @@
 }
 .contact-section {
 	padding-top: 12rem;
+
 	.contact {
 		margin-inline: 25.4rem;
 		background-color: #0e1215;
@@ -38,6 +39,23 @@
 
 			&:hover {
 				background-color: lighten(rgba($yellow, 0.8), 5%);
+			}
+		}
+	}
+
+	@include media(max, tablet) {
+		& {
+			padding-top: 8rem;
+
+			.contact {
+				margin-inline: 0;
+				padding: 6.4rem 1.2rem 4rem;
+				background-position: center bottom;
+				border-radius: 0;
+
+				h2 {
+					font-size: 4rem;
+				}
 			}
 		}
 	}

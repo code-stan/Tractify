@@ -36,9 +36,7 @@
 
 	.marquee-item {
 		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		@include flex(center, center);
 
 		img {
 			display: block;
@@ -58,6 +56,17 @@
 		}
 		100% {
 			transform: translateX(-50%);
+		}
+	}
+
+	@include media(max, tablet) {
+		& {
+			margin-top: 8rem;
+			gap: 2.4rem;
+
+			.marquee-track {
+				gap: 2.4rem;
+			}
 		}
 	}
 }

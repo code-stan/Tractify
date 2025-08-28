@@ -81,7 +81,7 @@
 				font-size: 3.2rem;
 				line-height: 1.1;
 
-				span {
+				div {
 					display: inline-block;
 					margin-top: 1.5rem;
 					width: 3.1rem;
@@ -124,8 +124,14 @@
 	}
 
 	@include media(max, tablet) {
-		padding: 12.4rem 2rem 9.3rem;
+		& {
+			padding: 12.4rem 2rem 9.3rem;
+			gap: 0;
+		}
 
+		.how-it-works__container {
+			align-items: start;
+		}
 		.col {
 			gap: 3.2rem;
 			flex-direction: column;
@@ -135,6 +141,8 @@
 
 		.left {
 			align-items: start;
+			background-color: left;
+			flex: unset;
 
 			.how-it-works__image-container {
 				left: -14%;
@@ -152,10 +160,17 @@
 				font-size: 2rem;
 				letter-spacing: -0.02em;
 
-				span {
+				div {
+					display: block;
 					margin-top: 1rem;
-					width: 2.5rem;
+					width: 2.4rem;
+					// flex: 0.01;
+					flex-shrink: 0;
+
 					margin-right: 0.8rem;
+				}
+				span {
+					flex: 1;
 				}
 			}
 		}

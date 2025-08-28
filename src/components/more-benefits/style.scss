@@ -6,7 +6,6 @@
 
 	.col.image-container {
 		overflow: hidden;
-		background-color: blue;
 	}
 	.content-container {
 		position: relative;
@@ -27,7 +26,7 @@
 		p {
 			margin-top: 8rem;
 			max-width: 28.8rem;
-			font-size: $fw-regular;
+			font-size: $fs-14;
 			line-height: 1.5;
 		}
 		button {
@@ -56,6 +55,30 @@
 			div + img {
 				width: 1.4rem;
 				height: 1rem;
+			}
+		}
+	}
+
+	@include media(max, tablet) {
+		& {
+			flex-direction: column;
+			gap: 4rem;
+			justify-content: unset;
+
+			.content-container {
+				margin-top: 0;
+				margin-inline: 2rem;
+
+				.star-container {
+					top: -22%;
+					right: -45%;
+				}
+				h2 {
+					font-size: 4rem;
+				}
+				p {
+					margin-top: 4rem;
+				}
 			}
 		}
 	}

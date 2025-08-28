@@ -33,6 +33,7 @@
 		font-weight: $fw-medium;
 	}
 	p {
+		margin-top: 2.4rem;
 		font-size: $fs-14;
 		font-weight: $fw-medium;
 		letter-spacing: -0.01em;
@@ -64,6 +65,23 @@
 		div + img {
 			width: 1.4rem;
 			height: 1rem;
+		}
+	}
+
+	@include media(max, tablet) {
+		& {
+			margin-top: 8rem;
+			margin-inline: 2rem;
+
+			.stars {
+				width: 14.6rem;
+				height: 14.6rem;
+				top: 55%;
+				right: -15%;
+			}
+			h3 {
+				font-size: 3.2rem;
+			}
 		}
 	}
 }
