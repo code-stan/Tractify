@@ -3,7 +3,6 @@ import "./style.scss";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CopySplit from "../CopySplit";
 import { BREAKPOINT } from "../../utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,12 +38,8 @@ const HowItWorks = () => {
 						<div className="how-it-works__image-container">
 							<img src="/how-it-works-star.svg" width={208} height={208} alt="" />
 						</div>
-						<CopySplit>
-							<h2>40%</h2>
-						</CopySplit>
-						<CopySplit>
-							<p>Of 100% is a lot</p>
-						</CopySplit>
+						<h2>40%</h2>
+						<p>Of 100% is a lot</p>
 					</div>
 
 					<div className="right">
