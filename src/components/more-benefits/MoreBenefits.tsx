@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import "./style.scss";
-import { BREAKPOINT } from "../../utils/constants";
+// import { BREAKPOINT } from "../../utils/constants";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopySplit from "../CopySplit";
@@ -13,35 +13,35 @@ const MoreBenefits = () => {
 		() => {
 			if (!container.current) return;
 
-			const mm = gsap.matchMedia();
+			// const mm = gsap.matchMedia();
 
-			mm.add(`(min-width: ${BREAKPOINT}px)`, () => {
-				const element = container.current?.querySelector(".image-container") as HTMLDivElement;
-				if (!element) return;
+			// mm.add(`(min-width: ${BREAKPOINT}px)`, () => {
+			const element = container.current?.querySelector(".image-container") as HTMLDivElement;
+			if (!element) return;
 
-				const image = element.querySelector("img");
-				if (!image) return;
+			const image = element.querySelector("img");
+			if (!image) return;
 
-				const tl = gsap.timeline({
-					scrollTrigger: {
-						trigger: element,
-						scrub: true,
-						pin: false,
-					},
-				});
-
-				tl.from(image, {
-					scaleY: 1.1,
-					transformOrigin: "50% 50%",
-					yPercent: -40,
-					ease: "none",
-				}).to(image, {
-					transformOrigin: "50% 50%",
-					scaleY: 1.08,
-					yPercent: 30,
-					ease: "none",
-				});
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: element,
+					scrub: true,
+					pin: false,
+				},
 			});
+
+			tl.from(image, {
+				scaleY: 1.1,
+				transformOrigin: "50% 50%",
+				yPercent: -40,
+				ease: "none",
+			}).to(image, {
+				transformOrigin: "50% 50%",
+				scaleY: 1.08,
+				yPercent: 30,
+				ease: "none",
+			});
+			// });
 		},
 		{ scope: container }
 	);
