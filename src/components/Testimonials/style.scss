@@ -7,7 +7,7 @@
 	align-items: center;
 	flex-direction: column;
 	padding-inline: 25.4rem;
-	background-image: url("public/testimonial-gradient-bg.svg");
+	// background-image: url("public/testimonial-gradient-bg.svg");
 	background-position: cover;
 	background-repeat: no-repeat;
 	// background-position: left -30%;
@@ -101,7 +101,7 @@
 
 	@include media(max, tablet) {
 		margin-top: 8rem;
-		padding-inline: 2rem;
+		padding-inline: 0;
 		overflow-x: hidden;
 
 		h3 {
@@ -110,16 +110,25 @@
 		}
 		.cards-container {
 			margin-top: 4.8rem;
-			display: flex;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
 			gap: 2rem;
-			overflow-x: visible;
-			padding-bottom: 1rem;
+
+			// overflow-x: auto;
+			padding: 0 2rem 1rem 2rem;
 			transform: none;
 			opacity: 1;
-			width: max-content;
+			max-width: 100%;
+			// width: auto;
+			// -webkit-overflow-scrolling: touch;
+			// scrollbar-width: none;
+
+			// &::-webkit-scrollbar {
+			// 	display: none;
+			// }
 		}
 		.card-container {
-			min-width: 19.1rem;
+			// min-width: 19.1rem;
 			max-width: 19.1rem;
 			flex-shrink: 0;
 			transform: none !important;

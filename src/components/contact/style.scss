@@ -16,8 +16,8 @@
 		padding: 6.4rem 22.05rem 10.7rem;
 		background-image: url("public/long-horizontal-star.svg");
 		background-repeat: no-repeat;
-		background-position: bottom;
-		background-size: 100% 16.9rem;
+		background-position: bottom center;
+		background-size: 100% auto;
 		border-radius: 3.2rem;
 		@include flex(center, center, 4rem, column);
 		text-align: center;
