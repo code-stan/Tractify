@@ -67,6 +67,12 @@
 			.marquee-track {
 				gap: 2.4rem;
 			}
+			.marquee-item {
+				img {
+					width: auto !important;
+					height: 2rem !important;
+				}
+			}
 		}
 	}
 }

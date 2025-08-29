@@ -21,10 +21,11 @@
 			}
 		}
 	}
-	.content-container {
+	.content-container.desktop-view {
 		margin-top: 2.9rem;
 		@include flex(start, space-between, 9.9rem);
 		max-width: 107.3rem;
+		// background-color: red;
 	}
 	.content {
 		display: flex;
@@ -97,6 +98,39 @@
 		.demo3 {
 			width: 55rem;
 			height: 31.2rem;
+		}
+	}
+	.content-container.mobile-view {
+		display: none;
+	}
+
+	@include media(max, tablet) {
+		& {
+			margin-top: 7.2rem;
+			margin-inline: 2rem;
+
+			.heading-container {
+				padding-top: 3.2rem;
+			}
+			.content-container.desktop-view {
+				display: none;
+			}
+			.content-container.mobile-view {
+				display: block;
+				margin-top: 2.5rem;
+
+				.point-img-container {
+					margin-top: 5.6rem;
+					img {
+						width: 100%;
+
+						height: auto !important;
+					}
+				}
+			}
+			.points {
+				gap: 2.4rem;
+			}
 		}
 	}
 }

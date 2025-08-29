@@ -5,6 +5,7 @@ import TestimonialCard from "./TestimonialCard";
 import { testimonialCards } from "./data";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopySplit from "../CopySplit";
+import { BREAKPOINT } from "../../utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,32 +14,77 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials = () => {
 	const containerRef = useRef<HTMLElement>(null);
+	const cardsContainerRef = useRef<HTMLDivElement>(null);
 	const testimonialCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 	if (!containerRef || !testimonialCardsRef) return;
 
 	useGSAP(() => {
-		const tl = gsap.timeline({ defaults: { ease: "elastic.inOut(1, 0.7)", duration: 2.5 }, paused: true});
-		tl.to(".cards-container", {
-			x: 0,
-			y: 0,
-			opacity: 1
-		}).to(
-			".card-container",
-			{
-				opacity: 1,
+		const mm = gsap.matchMedia();
+
+		// Desktop animation
+		mm.add(`(min-width: ${BREAKPOINT + 1}px)`, () => {
+			const tl = gsap.timeline({ defaults: { ease: "elastic.inOut(1, 0.7)", duration: 2.5 }, paused: true });
+			tl.to(".cards-container", {
 				x: 0,
 				y: 0,
-				rotation: 0,
-				stagger: {amount: .25},
-			},
-			"<"
-		);
-		ScrollTrigger.create({
-			trigger: ".testimonials",
-			start: "top 100%",
-			onEnter() {
-				tl.play();
-			},
+				opacity: 1,
+			}).to(
+				".card-container",
+				{
+					opacity: 1,
+					x: 0,
+					y: 0,
+					rotation: 0,
+					stagger: { amount: 0.25 },
+				},
+				"<"
+			);
+			ScrollTrigger.create({
+				trigger: ".testimonials",
+				start: "top 100%",
+				onEnter() {
+					tl.play();
+				},
+			});
+		});
+
+		// Mobile horizontal scroll animation
+		mm.add(`(max-width: ${BREAKPOINT}px)`, () => {
+			if (!cardsContainerRef.current) return;
+
+			const cards = cardsContainerRef.current.querySelectorAll(".card-container");
+			if (cards.length === 0) return;
+
+			// Simple calculation: scroll exactly enough to show all cards
+			const cardWidth = 19.1; // rem
+			const gap = 2; // rem
+
+			// Total width of all 4 cards + 3 gaps between them
+			const totalCardsWidth = 4 * cardWidth + 3 * gap; // 19.1*4 + 2*3 = 82.4rem
+
+			// Viewport width in rem
+			const viewportWidthRem = window.innerWidth / 10;
+
+			// Scroll distance = total cards width - viewport width
+			// This ensures when we finish scrolling, the last card is at the right edge of viewport
+			const scrollDistance = totalCardsWidth - viewportWidthRem;
+
+			gsap.fromTo(
+				cardsContainerRef.current,
+				{ x: 0 }, // Start: first card at left edge
+				{
+					x: `-${scrollDistance}rem`, // End: last card at right edge
+					ease: "none",
+					scrollTrigger: {
+						trigger: containerRef.current,
+						start: "top top",
+						end: () => `+=${window.innerHeight * 2}`,
+						scrub: 1,
+						pin: true,
+						pinSpacing: true,
+					},
+				}
+			);
 		});
 	}, [containerRef]);
 	return (
@@ -56,7 +102,7 @@ const Testimonials = () => {
 					</h3>
 				</CopySplit>
 			</div>
-			<div className="cards-container">
+			<div className="cards-container" ref={cardsContainerRef}>
 				{testimonialCards.map((data, i) => (
 					<Fragment key={data.name}>
 						<div className="card-container" ref={(el) => (testimonialCardsRef.current[i] = el)}>

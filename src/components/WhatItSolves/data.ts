@@ -12,3 +12,18 @@ export const solutionPoints = [
 		content: "Deadlines, filings, client notes—organized automatically.",
 	},
 ];
+
+export const solutionPointsImages = [
+	{
+		width: 519,
+		height: 290,
+	},
+	{
+		width: 550,
+		height: 416,
+	},
+	{
+		width: 550,
+		height: 312,
+	},
+];

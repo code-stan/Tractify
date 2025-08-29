@@ -41,17 +41,14 @@
 		opacity: 0.6;
 		flex: 1;
 		border-radius: 1.6rem;
-		// @extend %floating-anim;
 		background-color: $charcoal-black;
-		// position: absolute;
-		// inset: 0;
 		min-height: 25rem;
 		padding: 1.6rem;
 		padding-bottom: 4rem;
 		background-image: url("public/card-star-bg.svg");
 		background-repeat: no-repeat;
-		background-position: bottom;
-		background-size: 100% 3.2rem;
+		background-position: bottom center;
+		background-size: 100% auto;
 		will-change: transform, opacity;
 
 		&:nth-child(1) {
@@ -105,6 +102,7 @@
 	@include media(max, tablet) {
 		margin-top: 8rem;
 		padding-inline: 2rem;
+		overflow-x: hidden;
 
 		h3 {
 			font-size: $fs-24;
@@ -114,23 +112,16 @@
 			margin-top: 4.8rem;
 			display: flex;
 			gap: 2rem;
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
+			overflow-x: visible;
 			padding-bottom: 1rem;
 			transform: none;
 			opacity: 1;
-			
-			// Hide scrollbar but keep functionality
-			scrollbar-width: none;
-			-ms-overflow-style: none;
-			&::-webkit-scrollbar {
-				display: none;
-			}
+			width: max-content;
 		}
 		.card-container {
-			min-width: 28rem;
+			min-width: 19.1rem;
+			max-width: 19.1rem;
 			flex-shrink: 0;
-			scroll-snap-align: center;
 			transform: none !important;
 			opacity: 1 !important;
 		}

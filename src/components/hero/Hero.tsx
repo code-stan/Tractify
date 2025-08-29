@@ -10,8 +10,19 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
 	useGSAP(() => {
 		const mm = gsap.matchMedia();
-		mm.add(`min-width: ${BREAKPOINT}`, () => {
-			const animation = gsap.to(".hero-image img", {
+		mm.add(`(min-width: ${BREAKPOINT + 1}px)`, () => {
+			const heroImage = document.querySelector(".hero-image img");
+			if (!heroImage) return;
+
+			// // Set initial state
+			// gsap.set(heroImage, {
+			// 	yPercent: 0,
+			// 	rotateX: 15,
+			// 	scale: 0.8,
+			// 	filter: "blur(8px) brightness(0.7)"
+			// });
+
+			const animation = gsap.to(heroImage, {
 				yPercent: -75,
 				rotateX: 0,
 				scale: 1,
@@ -19,6 +30,7 @@ const Hero = () => {
 				ease: "power1.out",
 				filter: "blur(0px) brightness(1)",
 			});
+
 			ScrollTrigger.create({
 				trigger: ".hero-image__container",
 				start: "top 30%",

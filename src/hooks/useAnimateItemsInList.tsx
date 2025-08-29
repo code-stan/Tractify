@@ -30,7 +30,7 @@ const useAnimateItemsInList = (listParent: RefObject<HTMLUListElement | null>, c
 
 						});
 					});
-					mm.add(`(min-width: ${BREAKPOINT}px)`, () => {
+					mm.add(`(min-width: ${BREAKPOINT + 1}px)`, () => {
 						gsap.from(lis, {
 							yPercent: 50,
 							opacity: 0,

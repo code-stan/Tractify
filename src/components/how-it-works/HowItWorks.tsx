@@ -17,7 +17,7 @@ const RightArr = () => (
 const HowItWorks = () => {
 	useGSAP(() => {
 		const mm = gsap.matchMedia();
-		mm.add(`min-width: ${BREAKPOINT}`, () => {
+		mm.add(`(min-width: ${BREAKPOINT + 1}px)`, () => {
 			ScrollTrigger.create({
 				trigger: ".how-it-works",
 				start: "top 0%",

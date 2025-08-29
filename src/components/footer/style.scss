@@ -9,9 +9,9 @@
 	.col {
 		line-height: 0.8;
 		letter-spacing: -0.01em;
-		font-size: $fs-14;
 
 		h2 {
+			font-size: $fs-14;
 			color: #a3a8b8;
 			text-transform: uppercase;
 		}
@@ -23,7 +23,23 @@
 		flex-direction: column;
 
 		li {
+			font-size: $fs-16;
 			color: #d9d9d9;
+		}
+	}
+
+	@include media(max, tablet) {
+		& {
+			margin: 0;
+			background-image: linear-gradient(114.99deg, rgba(6, 11, 14, 0) 65.67%, #1d2225 101.57%), linear-gradient(114.99deg, color(display-p3 0.027 0.043 0.055 / 0) 65.67%, color(display-p3 0.118 0.133 0.145) 101.57%);
+			background-position: left -60%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			padding: 8rem 2.1rem;
+			row-gap: 4.8rem;
+
+			// .footer-list {
+			// }
 		}
 	}
 }
