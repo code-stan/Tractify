@@ -49,43 +49,43 @@ const Testimonials = () => {
 		});
 
 		// Mobile horizontal scroll animation
-		mm.add(`(max-width: ${BREAKPOINT}px)`, () => {
-			if (!cardsContainerRef.current) return;
+		// mm.add(`(max-width: ${BREAKPOINT}px)`, () => {
+		// 	if (!cardsContainerRef.current) return;
 
-			const cards = cardsContainerRef.current.querySelectorAll(".card-container");
-			if (cards.length === 0) return;
+		// 	const cards = cardsContainerRef.current.querySelectorAll(".card-container");
+		// 	if (cards.length === 0) return;
 
-			// Simple calculation: scroll exactly enough to show all cards
-			const cardWidth = 19.1; // rem
-			const gap = 2; // rem
+		// 	// Simple calculation: scroll exactly enough to show all cards
+		// 	const cardWidth = 19.1; // rem
+		// 	const gap = 2; // rem
 
-			// Total width of all 4 cards + 3 gaps between them
-			const totalCardsWidth = 4 * cardWidth + 3 * gap; // 19.1*4 + 2*3 = 82.4rem
+		// 	// Total width of all 4 cards + 3 gaps between them
+		// 	const totalCardsWidth = 4 * cardWidth + 3 * gap; // 19.1*4 + 2*3 = 82.4rem
 
-			// Viewport width in rem
-			const viewportWidthRem = window.innerWidth / 10;
+		// 	// Viewport width in rem
+		// 	const viewportWidthRem = window.innerWidth / 10;
 
-			// Scroll distance = total cards width - viewport width
-			// This ensures when we finish scrolling, the last card is at the right edge of viewport
-			const scrollDistance = totalCardsWidth - viewportWidthRem;
+		// 	// Scroll distance = total cards width - viewport width
+		// 	// This ensures when we finish scrolling, the last card is at the right edge of viewport
+		// 	const scrollDistance = totalCardsWidth - viewportWidthRem;
 
-			gsap.fromTo(
-				cardsContainerRef.current,
-				{ x: 0 }, // Start: first card at left edge
-				{
-					x: `-${scrollDistance}rem`, // End: last card at right edge
-					ease: "none",
-					scrollTrigger: {
-						trigger: containerRef.current,
-						start: "top top",
-						end: () => `+=${window.innerHeight * 2}`,
-						scrub: 1,
-						pin: true,
-						pinSpacing: true,
-					},
-				}
-			);
-		});
+		// 	gsap.fromTo(
+		// 		cardsContainerRef.current,
+		// 		{ x: 0 }, // Start: first card at left edge
+		// 		{
+		// 			x: `-${scrollDistance}rem`, // End: last card at right edge
+		// 			ease: "none",
+		// 			scrollTrigger: {
+		// 				trigger: containerRef.current,
+		// 				start: "top top",
+		// 				end: () => `+=${window.innerHeight * 2}`,
+		// 				scrub: 1,
+		// 				pin: true,
+		// 				pinSpacing: true,
+		// 			},
+		// 		}
+		// 	);
+		// });
 	}, [containerRef]);
 	return (
 		<section className="testimonials" ref={containerRef}>
