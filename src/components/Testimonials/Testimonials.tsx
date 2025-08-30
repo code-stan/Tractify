@@ -24,9 +24,13 @@ const Testimonials = () => {
 		// Desktop animation
 		mm.add(`(min-width: ${BREAKPOINT + 1}px)`, () => {
 			const tl = gsap.timeline({ paused: true });
+			gsap.set(".card-container", {
+				scale: 0.5,
+			});
 			tl.to(
 				".card-container",
 				{
+					scale: 1,
 					opacity: 1,
 					x: 0,
 					y: 0,
