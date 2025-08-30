@@ -110,25 +110,17 @@
 		}
 		.cards-container {
 			margin-top: 4.8rem;
-			display: grid;
-			grid-template-columns: 1fr 1fr;
+			display: flex;
 			gap: 2rem;
-
 			// overflow-x: auto;
-			padding: 0 2rem 1rem 2rem;
+			padding: 0 2rem 1rem;
 			transform: none;
 			opacity: 1;
 			max-width: 100%;
-			// width: auto;
-			// -webkit-overflow-scrolling: touch;
-			// scrollbar-width: none;
-
-			// &::-webkit-scrollbar {
-			// 	display: none;
-			// }
 		}
 		.card-container {
-			// min-width: 19.1rem;
+			min-width: 19.1rem;
+			flex-shrink: 0;
 			max-width: 19.1rem;
 			flex-shrink: 0;
 			transform: none !important;
