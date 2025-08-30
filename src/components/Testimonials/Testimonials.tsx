@@ -76,7 +76,7 @@ const Testimonials = () => {
 					ease: "none",
 					scrollTrigger: {
 						trigger: containerRef.current,
-						start: "top top",
+						start: "-50% top",
 						end: () => `+=${window.innerHeight * 2}`,
 						scrub: 1,
 						pin: true,
