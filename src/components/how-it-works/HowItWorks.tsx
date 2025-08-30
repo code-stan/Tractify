@@ -7,7 +7,7 @@ import { BREAKPOINT } from "../../utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const RightArr = () => (
+export const RightArr = () => (
 	<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path d="M6.15909 10.3679L5.13494 9.35369L8.20242 6.28622H0.75V4.80469H8.20242L5.13494 1.74219L6.15909 0.723011L10.9815 5.54545L6.15909 10.3679Z" fill="white" style={{ fill: "white", fillOpacity: 1 }} />
 	</svg>
@@ -24,8 +24,12 @@ const HowItWorks = () => {
 				pin: true,
 				pinSpacing: true,
 				scrub: true,
+				onEnterBack: () => {
+					gsap.to(".how-it-works .how-it-works-star", { opacity: 0, ease: "none" });
+				},
 				onLeave: () => {
 					gsap.set(".how-it-works", { zIndex: "1" });
+					gsap.to(".how-it-works .how-it-works-star", { opacity: 1, ease: "none" });
 				},
 			});
 		});
@@ -63,7 +67,7 @@ const HowItWorks = () => {
 				<div className="col">
 					<div className="left"></div>
 					<div className="right right-2">
-						<img src="/how-it-works-star2.svg" width={297} height={114} alt="" />
+						<img src="/how-it-works-star2.svg" width={297} height={114} alt="" className="how-it-works-star" />
 
 						<p className="description">Tractify eliminates the friction—so you get time back, bill more, and stress less.</p>
 						<button className="button">

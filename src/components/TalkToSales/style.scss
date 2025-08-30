@@ -56,15 +56,18 @@
 			display: flex;
 			align-items: center;
 			gap: 0.3rem;
-
-			img {
-				width: 2rem;
-				height: 2rem;
-			}
 		}
-		div + img {
+		div + svg {
 			width: 1.4rem;
 			height: 1rem;
+		}
+		&:hover {
+			background: $white;
+			color: #000;
+
+			path {
+				fill: #000 !important;
+			}
 		}
 	}
 

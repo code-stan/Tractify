@@ -14,14 +14,6 @@ const Hero = () => {
 			const heroImage = document.querySelector(".hero-image img");
 			if (!heroImage) return;
 
-			// // Set initial state
-			// gsap.set(heroImage, {
-			// 	yPercent: 0,
-			// 	rotateX: 15,
-			// 	scale: 0.8,
-			// 	filter: "blur(8px) brightness(0.7)"
-			// });
-
 			const animation = gsap.to(heroImage, {
 				yPercent: -75,
 				rotateX: 0,
@@ -33,7 +25,7 @@ const Hero = () => {
 
 			ScrollTrigger.create({
 				trigger: ".hero-image__container",
-				start: "top 30%",
+				start: "0% 30%",
 				end: "+=150%",
 				animation,
 				pin: true,

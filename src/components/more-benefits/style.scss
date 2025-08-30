@@ -6,6 +6,11 @@
 
 	.col.image-container {
 		overflow: hidden;
+
+		img {
+			width: 67.6rem;
+			height: 79.4rem;
+		}
 	}
 	.content-container {
 		position: relative;
@@ -52,9 +57,21 @@
 					height: 2rem;
 				}
 			}
-			div + img {
+			div + svg {
 				width: 1.4rem;
 				height: 1rem;
+			}
+			&:hover {
+				background: $white;
+				color: #000;
+
+				div img {
+					opacity: 0;
+				}
+
+				path {
+					fill: #000 !important;
+				}
 			}
 		}
 	}
@@ -64,7 +81,20 @@
 			flex-direction: column;
 			gap: 4rem;
 			justify-content: unset;
+			.col.image-container {
+				position: relative;
 
+				z-index: 3;
+				overflow: hidden;
+				max-height: 44rem;
+
+				img {
+					width: 100%;
+					height: unset;
+					min-height: 55rem;
+					object-fit: cover;
+				}
+			}
 			.content-container {
 				margin-top: 0;
 				margin-inline: 2rem;

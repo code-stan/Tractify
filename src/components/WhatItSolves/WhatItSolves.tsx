@@ -39,7 +39,7 @@ const WhatItSolves = () => {
 					ease: "none",
 					scrollTrigger: {
 						trigger: containerRef.current,
-						start: "top top",
+						start: "-24% top",
 						end: () => `+=${window.innerHeight * 3}`,
 						scrub: 0,
 						pin: true,

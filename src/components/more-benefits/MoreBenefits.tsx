@@ -5,6 +5,7 @@ import "./style.scss";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopySplit from "../CopySplit";
+import { RightArr } from "../how-it-works/HowItWorks";
 
 gsap.registerPlugin(ScrollTrigger);
 const MoreBenefits = () => {
@@ -72,7 +73,7 @@ const MoreBenefits = () => {
 							<img src="./orb-icon.svg" alt="" width={25} height={25} />
 							Get started
 						</div>
-						<img src="./little-right-arrow.svg" alt="" width={11} height={11} />
+						<RightArr />
 					</button>
 				</CopySplit>
 			</div>

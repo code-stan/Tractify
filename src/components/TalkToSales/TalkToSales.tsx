@@ -1,5 +1,6 @@
 import "./style.scss";
 import CopySplit from "../CopySplit";
+import { RightArr } from "../how-it-works/HowItWorks";
 
 const TalkToSales = () => {
 	return (
@@ -22,7 +23,7 @@ const TalkToSales = () => {
 				<div className="button-container">
 					<button>
 						<div>Talk to sales</div>
-						<img src="./little-right-arrow.svg" alt="" width={11} height={11} />
+						<RightArr />
 					</button>
 				</div>
 			</div>

@@ -23,7 +23,7 @@ const Testimonials = () => {
 
 		// Desktop animation
 		mm.add(`(min-width: ${BREAKPOINT + 1}px)`, () => {
-			const tl = gsap.timeline({ defaults: { ease: "elastic.inOut(1, 0.7)", duration: 2.5 }, paused: true });
+			const tl = gsap.timeline({ defaults: { ease: "elastic.inOut(1, 0.7)", duration: 2.2 }, paused: true });
 			tl.to(".cards-container", {
 				x: 0,
 				y: 0,
@@ -41,7 +41,7 @@ const Testimonials = () => {
 			);
 			ScrollTrigger.create({
 				trigger: ".testimonials",
-				start: "top 100%",
+				start: "top 110%",
 				onEnter() {
 					tl.play();
 				},
@@ -62,7 +62,7 @@ const Testimonials = () => {
 			// const gap = 2; // rem
 
 			// Total width of all 4 cards + 3 gaps between them
-			const totalCardsWidth = cardsWidth + totalGap + 7;
+			const totalCardsWidth = cardsWidth + totalGap + 4;
 
 			// Viewport width in rem
 			const viewportWidthRem = window.innerWidth / 10;
