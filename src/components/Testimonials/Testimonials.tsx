@@ -39,7 +39,7 @@ const Testimonials = () => {
 			);
 			ScrollTrigger.create({
 				trigger: ".testimonials",
-				start: "top 65%",
+				start: "top 60%",
 				onEnter() {
 					tl.play();
 				},
